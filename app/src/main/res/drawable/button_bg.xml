@@ -3,24 +3,18 @@
 
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/semi_transparent"/>
-            <stroke android:color="@color/selected_stroke" android:width="@dimen/stroke"/>
-            <corners android:bottomLeftRadius="0dp"
-                android:bottomRightRadius="@dimen/button_redius"
-                android:topLeftRadius="@dimen/button_redius"
-                android:topRightRadius="0dp"/>
+            <solid android:color="@color/button_pressed" />
+            <stroke android:width="@dimen/stroke" android:color="@color/colorAccent" />
+            <corners android:bottomLeftRadius="0dp" android:bottomRightRadius="@dimen/button_redius" android:topLeftRadius="@dimen/button_redius" android:topRightRadius="0dp" />
         </shape>
     </item>
-
 
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/transparent"/>
-            <stroke android:color="@color/unselected_stroke" android:width="@dimen/stroke"/>
-            <corners android:bottomLeftRadius="0dp"
-                android:bottomRightRadius="@dimen/button_redius"
-                android:topLeftRadius="@dimen/button_redius"
-                android:topRightRadius="0dp"/>
+            <solid android:color="@color/semi_transparent" />
+            <stroke android:width="@dimen/stroke" android:color="@color/unselected_stroke" />
+            <corners android:bottomLeftRadius="0dp" android:bottomRightRadius="@dimen/button_redius" android:topLeftRadius="@dimen/button_redius" android:topRightRadius="0dp" />
         </shape>
     </item>
+
 </selector>

@@ -89,10 +89,15 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 break;
 
             case "Equal":
-                values.setSecondValue(Integer.parseInt(mEdtValue.getText().toString()));
+               try {
+                   values.setSecondValue(Integer.parseInt(mEdtValue.getText().toString()));
 
-                ICalculation iCalculation = new Calculation();
-                mEdtValue.setText(String.valueOf(iCalculation.calculation(values)));
+                   ICalculation iCalculation = new Calculation();
+                   mEdtValue.setText(String.valueOf(iCalculation.calculation(values)));
+               }catch (Exception ex)
+               {
+                   Toast.makeText(getApplicationContext(),"Select action first",Toast.LENGTH_LONG).show();
+               }
                 break;
 
         }

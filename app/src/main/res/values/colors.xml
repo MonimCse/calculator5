@@ -6,6 +6,7 @@
     <color name="white">#fff</color>
     <color name="black">#000</color>
     <color name="transparent">#00FF4081</color>
+    <color name="button_pressed">#55ffc400</color>
     <color name="semi_transparent">#5500c853</color>
     <color name="selected_stroke">#00c853</color>
     <color name="unselected_stroke">#546e7a</color>
