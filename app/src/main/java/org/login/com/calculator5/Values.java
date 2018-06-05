@@ -4,6 +4,7 @@ public class Values {
 
     int firstValue;
     int secondValue;
+    boolean isResult = false;
     String actionName;
 
     public int getFirstValue() {
@@ -28,5 +29,13 @@ public class Values {
 
     public void setActionName(String actionName) {
         this.actionName = actionName;
+    }
+
+    public boolean isResult() {
+        return isResult;
+    }
+
+    public void setResult(boolean result) {
+        isResult = result;
     }
 }

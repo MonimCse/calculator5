@@ -56,7 +56,33 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     }*/
 
     public void setValue(View view) {
-        mEdtValue.setText(mEdtValue.getText().toString() + String.valueOf(view.getTag()));
+
+        if(values.isResult)
+        {
+            values.setResult(false);
+            mEdtValue.setText(""+String.valueOf(view.getTag()));
+        }else
+        {
+
+            mEdtValue.setText(mEdtValue.getText().toString() + String.valueOf(view.getTag()));
+
+        }
+
+    }
+
+    public void setPreviousValue(View view)
+    {
+        int currentValue = Integer.parseInt(mEdtValue.getText().toString());
+        int previousValue = currentValue/10;
+
+        if (previousValue>0)
+        {
+            mEdtValue.setText(String.valueOf(previousValue));
+        }
+        else
+        {
+            mEdtValue.setText("");
+        }
 
     }
 
@@ -66,34 +92,40 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
             case "Add":
                 values.setActionName("Add");
                 values.setFirstValue(Integer.parseInt(mEdtValue.getText().toString()));
-                mEdtValue.setText("");
+                mEdtValue.setText(mEdtValue.getText().toString() + " + ");
 
                 break;
 
             case "Sub":
                 values.setActionName("Sub");
+
                 values.setFirstValue(Integer.parseInt(mEdtValue.getText().toString()));
-                mEdtValue.setText("");
+                mEdtValue.setText(mEdtValue.getText().toString() + " - ");
+
                 break;
 
             case "Mul":
                 values.setActionName("Mul");
                 values.setFirstValue(Integer.parseInt(mEdtValue.getText().toString()));
-                mEdtValue.setText("");
+                mEdtValue.setText(mEdtValue.getText().toString() + " * ");
                 break;
 
             case "Div":
                 values.setActionName("Div");
                 values.setFirstValue(Integer.parseInt(mEdtValue.getText().toString()));
-                mEdtValue.setText("");
+                mEdtValue.setText(mEdtValue.getText().toString() + " / ");
+
                 break;
 
             case "Equal":
                try {
-                   values.setSecondValue(Integer.parseInt(mEdtValue.getText().toString()));
-
                    ICalculation iCalculation = new Calculation();
+
+
+                   values.setSecondValue(iCalculation.splite(values,mEdtValue.getText().toString()));
+
                    mEdtValue.setText(String.valueOf(iCalculation.calculation(values)));
+                   values.setResult(true);
                }catch (Exception ex)
                {
                    Toast.makeText(getApplicationContext(),"Select action first",Toast.LENGTH_LONG).show();
